@@ -20,15 +20,15 @@
             <label for="mySelect" class="text-white">Select Project</label>
             <select id="mySelect" onchange="myFunction()">
             </select>
-            <ul class="text-white">   
-              <li class="py-2"><a href="#" class="text-white" id="newProject">New Project</a></li>
-              <li class="py-2"><a href="#" class="text-white" id="newTodo">New Todo List</a></li>
-            </ul>
+            <button type="button" id="newProjBtn" class="btn btn-light">New Project</button>
+            <button type="button" id="newTodoBtn" class="btn btn-light">New Todo List</button>
           </nav>
           <div class="projects"></div>
-          <form id="projectForm">
-            <label for="projectTitle">Project Title</label>
+          <form id="projectForm" class="projectForm bg-primary p-2">
+            <label for="projectTitle" class="text-white">Project Title</label>
             <input type="text" id="projectTitle">
+            <button type="submit" id="addProjectBtn" class="btn btn-success">Add Project</button>
+            <button type="submit" id="cancelProjectBtn" class="btn btn-danger">Cancel</button>
           </form>
         </div>
         <div class="col-9" id="content"></div>

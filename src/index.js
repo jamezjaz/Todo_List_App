@@ -1,8 +1,10 @@
 import projectObj from './project';
 import todoObj from './todo';
 import {
-  mainContent, todos, todoPara, todoContents, mySelect,
+  mainContent, todos, todoPara, todoContents, mySelect, projectForm,
+  newProjBtn, projectInput, addProjectBtn,
 } from './selectors';
+import projForm from './projectForm';
 
 const allProjects = [];
 
@@ -14,6 +16,10 @@ const selectOption = () => {
   });
 };
 
+mySelect.onchange = () => {
+  showCurrentProject(mySelect.value);
+};
+
 const showCurrentProject = (currentProject) => {
   allProjects.forEach((proj) => {
     if (proj.projectTitle === currentProject) {
@@ -22,10 +28,9 @@ const showCurrentProject = (currentProject) => {
           todoPara.innerHTML = proj.todoList[i].title;
           todos.appendChild(todoPara);
           mainContent.appendChild(todos);
-          alert('Project created successfully');
         }
       } else {
-        todoDetails.innerHTML = 'No Todos';
+        todoPara.innerHTML = '<h3 class="text-danger font-weight-bold">No Todos! Create one...</h3>';
       }
     }  
   });
@@ -45,8 +50,30 @@ const defaults = () => {
   selectOption();
 };
 
+const createProject = (project) => {
+  const newProject = projectObj(project);
+  allProjects.push(newProject);
+  mySelect.innerHTML = '';
+  selectOption();
+  projForm.hideProjectForm();
+  alert('Project created successfully');
+};
+
+const validateProjInput = (e) => {
+  e.preventDefault();
+  if (projectInput.value === '') {
+    alert('Project cannot be empty');
+  } else {
+    createProject(projectInput.value);
+  }
+};
+
 defaults();
 
-mySelect.onchange = () => {
-  showCurrentProject(mySelect.value);
-};
+newProjBtn.addEventListener('click', () => {
+  projForm.createProjectForm();
+});
+
+addProjectBtn.addEventListener('click', (e) => {
+  validateProjInput(e);
+});
