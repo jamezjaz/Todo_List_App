@@ -114,6 +114,24 @@ const validateTodoInput = (e) => {
   }
 };
 
+const delTodoBtn = (target) => {
+  allProjects.forEach((proj) => {
+    if (proj.projectTitle === currentProject) {
+      proj.todoList.splice(target.value, 1);
+      showCurrentProject(currentProject);
+    }
+  });
+};
+
+const editDelAction = (event) => {
+  if (event.classList == 'editBtn') {
+    alert("Todo edited successfully");
+  } else if (event.classList == 'delBtn') {
+    alert("Todo will be deleted...");
+    delTodoBtn(event);
+  }
+};
+
 defaults();
 
 newProjBtn.addEventListener('click', () => {
@@ -142,4 +160,9 @@ cancelProjBtn.addEventListener('click', () => {
 
 cancelTodoBtn.addEventListener('click', () => { 
   projForm.hideTodoForm();
+});
+
+todos.addEventListener('click', (e) => {
+  editDelAction(e.target);
+  console.log('Working');
 });
