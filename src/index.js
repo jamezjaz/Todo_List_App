@@ -39,8 +39,8 @@ const showCurrentProject = (currentProject) => {
           todoDiv.innerHTML = todoDetails;
           const editBtn = document.createElement('button');
           const deleteBtn = document.createElement('button');
-          editBtn.innerHTML = '<i class="fas fa-edit"></i>';
-          deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+          editBtn.innerHTML = 'Edit';
+          deleteBtn.innerHTML = 'Delete';
           editBtn.classList.add('editBtn');
           deleteBtn.classList.add('delBtn');
           todoDiv.appendChild(editBtn);
