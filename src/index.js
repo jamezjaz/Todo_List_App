@@ -33,10 +33,18 @@ const showCurrentProject = (currentProject) => {
           const todoDiv = document.createElement('div');
           todoDiv.classList.add('todoDiv');
           let todoDetails = `Title: ${proj.todoList[i].title} </br></br>`;
-          todoDetails += `Desscription: ${proj.todoList[i].description} </br></br>`;
-          todoDetails += `Due Date: ${proj.todoList[i].dueDate} </br></br>`;
+          todoDetails += `Description: ${proj.todoList[i].description} </br></br>`;
+          todoDetails += `Date: ${proj.todoList[i].dueDate} </br></br>`;
           todoDetails += `Priority: ${proj.todoList[i].priority} </br></br>`;
           todoDiv.innerHTML = todoDetails;
+          const editBtn = document.createElement('button');
+          const deleteBtn = document.createElement('button');
+          editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+          deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
+          editBtn.classList.add('editBtn');
+          deleteBtn.classList.add('delBtn');
+          todoDiv.appendChild(editBtn);
+          todoDiv.appendChild(deleteBtn);
           todos.appendChild(todoDiv);
           mainContent.appendChild(todos);
         }

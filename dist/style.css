@@ -20,3 +20,21 @@ header {
   padding: 1rem;
   background-color: #007BFF;
 }
+
+.editBtn {
+  background-color: white;
+}
+
+.delBtn {
+  background-color: red;
+  color: white;
+}
+
+.editBtn,
+.delBtn {
+  font-size: 1.5rem;
+  margin: 10px 10px 0 0;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 10%;
+}
