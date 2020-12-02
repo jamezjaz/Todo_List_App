@@ -1,13 +1,14 @@
 import projectObj from './project';
 import todoObj from './todo';
 import {
-  mainContent, todos, todoPara, todoContents, mySelect, option,
+  mainContent, todos, todoPara, todoContents, mySelect,
 } from './selectors';
 
 const allProjects = [];
 
 const selectOption = () => {
   allProjects.forEach((proj) => {
+    const option = document.createElement('option');
     option.innerHTML = proj.projectTitle;
     mySelect.appendChild(option);
   });
