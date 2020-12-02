@@ -26,14 +26,21 @@ mySelect.onchange = () => {
 const showCurrentProject = (currentProject) => {
   allProjects.forEach((proj) => {
     if (proj.projectTitle === currentProject) {
+      todos.innerHTML = '';
       if (proj.todoList.length > 0) {
         for (let i = 0; i < proj.todoList.length; i += 1) {
-          todoPara.innerHTML = proj.todoList[i].title;
-          todos.appendChild(todoPara);
+          const todoDiv = document.createElement('div');
+          todoDiv.classList.add('todoDiv');
+          let todoDetails = `Title: ${proj.todoList[i].title} </br></br>`;
+          todoDetails += `Desscription: ${proj.todoList[i].description} </br></br>`;
+          todoDetails += `Due Date: ${proj.todoList[i].dueDate} </br></br>`;
+          todoDetails += `Priority: ${proj.todoList[i].priority} </br></br>`;
+          todoDiv.innerHTML = todoDetails;
+          todos.appendChild(todoDiv);
           mainContent.appendChild(todos);
         }
       } else {
-        todoPara.innerHTML = '<h3 class="text-danger font-weight-bold">No Todos! Create one...</h3>';
+        todos.innerHTML = '<h3 class="text-danger font-weight-bold">No Todos! Create one...</h3>';
       }
     }  
   });
@@ -48,8 +55,8 @@ const defaults = () => {
   secondProject.todoList.push(secondTodo);
   allProjects.push(defaultProject);
   allProjects.push(secondProject);
-  currentProject = defaultProject;
-  showCurrentProject(currentProject.projectTitle);
+  currentProject = defaultProject.projectTitle;
+  showCurrentProject(currentProject);
   selectOption();
 };
 
@@ -67,6 +74,8 @@ const createTodo = (title, description, dueDate, priority) => {
   allProjects.forEach((proj) => {
     if (proj.projectTitle === currentProject) {
       proj.todoList.push(newTodo);
+      showCurrentProject(currentProject);
+      projForm.hideTodoForm();
       alert(`${proj.todoList.length + ' Todo(s) added succesfully!'}`);
     }
   });
@@ -100,6 +109,7 @@ defaults();
 
 newProjBtn.addEventListener('click', () => {
   projForm.createProjectForm();
+  projectForm.reset();
 });
 
 addProjectBtn.addEventListener('click', (e) => {
@@ -114,4 +124,5 @@ addTodoBtn.addEventListener('click', (e) => {
 newTodoBtn.addEventListener('click', () => {
   console.log('Todo Form');
   projForm.createTodoForm();
+  todoForm.reset();
 });

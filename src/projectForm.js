@@ -15,10 +15,15 @@ const projForm = (() => {
     todoForm.style.display = "block";
   };
 
+  const hideTodoForm = () => {
+    todoForm.style.display = "none";
+  };
+
   return {
     createProjectForm,
     hideProjectForm,
     createTodoForm,
+    hideTodoForm,
   };
 })();
 
