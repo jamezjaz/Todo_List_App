@@ -17,13 +17,19 @@
       <div class="container-fluid d-flex row p-0 m-0 vh-100">
         <div class="col-3 nav-links bg-dark">
           <nav>
-            <ul class="text-white">
-              <li class="py-2"><a href="#" class="text-white" id="all-todos-link">Default Todos</a></li>
-              <li class="py-2"><a href="#" class="text-white" id="new-project-link">New Project</a></li>
-              <li class="py-2"><a href="#" class="text-white" id="new-todos-link">New Todo List</a></li>
+            <label for="mySelect" class="text-white">Select Project</label>
+            <select id="mySelect" onchange="myFunction()">
+            </select>
+            <ul class="text-white">   
+              <li class="py-2"><a href="#" class="text-white" id="newProject">New Project</a></li>
+              <li class="py-2"><a href="#" class="text-white" id="newTodo">New Todo List</a></li>
             </ul>
           </nav>
           <div class="projects"></div>
+          <form id="projectForm">
+            <label for="projectTitle">Project Title</label>
+            <input type="text" id="projectTitle">
+          </form>
         </div>
         <div class="col-9" id="content"></div>
       </div>
