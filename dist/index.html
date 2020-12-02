@@ -30,6 +30,22 @@
             <button type="submit" id="addProjectBtn" class="btn btn-success">Add Project</button>
             <button type="submit" id="cancelProjectBtn" class="btn btn-danger">Cancel</button>
           </form>
+          <form id="todoForm" class="bg-primary p-2 mt-2">
+            <label for="todoTitle" class="text-white">Todo Title</label>
+            <input type="text" id="todoTitle"></br>
+            <label for="todoDescription" class="text-white">Description</label>
+            <input type="text" id="todoDescription"></br>
+            <label for="todoDate" class="text-white">Date</label>
+            <input type="date" id="todoDate"></br>
+            <label for="todoPriority" class="text-white">Priority</label>        
+            <select id="todoPriority">
+              <option value="High">High</option>
+              <option value="Medium">Medium</option>
+              <option value="Low">Low</option>
+            </select></br>
+            <button type="submit" id="addTodoBtn" class="btn btn-success">Add Todo</button>
+            <button type="submit" id="cancelTodoBtn" class="btn btn-danger">Cancel</button>
+          </form>
         </div>
         <div class="col-9" id="content"></div>
       </div>

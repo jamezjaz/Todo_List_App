@@ -6,10 +6,17 @@ const projectForm = document.querySelector('#projectForm');
 const newProjBtn = document.querySelector('#newProjBtn');
 const projectInput = document.querySelector('#projectTitle');
 const addProjectBtn = document.querySelector('#addProjectBtn');
+const todoForm = document.getElementById('todoForm');
+const todoTitle = document.getElementById('todoTitle');
+const todoDescription = document.getElementById('todoDescription');
+const todoDate = document.getElementById('todoDate');
+const todoPriority = document.getElementById('todoPriority');
+const addTodoBtn = document.getElementById('addTodoBtn');
 
 const todoContents = todoPara.innerHTML;
 
 export {
   mainContent, todos, todoPara, todoContents, mySelect, projectForm,
-  newProjBtn, projectInput, addProjectBtn,
+  newProjBtn, projectInput, addProjectBtn, todoForm, todoTitle,
+  todoDescription, todoDate, todoPriority, addTodoBtn,
 };

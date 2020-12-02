@@ -2,11 +2,13 @@ import projectObj from './project';
 import todoObj from './todo';
 import {
   mainContent, todos, todoPara, todoContents, mySelect, projectForm,
-  newProjBtn, projectInput, addProjectBtn,
+  newProjBtn, projectInput, addProjectBtn, todoForm, todoTitle,
+  todoDescription, todoDate, todoPriority, addTodoBtn,
 } from './selectors';
 import projForm from './projectForm';
 
 const allProjects = [];
+let currentProject = '';
 
 const selectOption = () => {
   allProjects.forEach((proj) => {
@@ -17,7 +19,8 @@ const selectOption = () => {
 };
 
 mySelect.onchange = () => {
-  showCurrentProject(mySelect.value);
+  currentProject = mySelect.value;
+  showCurrentProject(currentProject);
 };
 
 const showCurrentProject = (currentProject) => {
@@ -45,7 +48,7 @@ const defaults = () => {
   secondProject.todoList.push(secondTodo);
   allProjects.push(defaultProject);
   allProjects.push(secondProject);
-  const currentProject = defaultProject;
+  currentProject = defaultProject;
   showCurrentProject(currentProject.projectTitle);
   selectOption();
 };
@@ -59,12 +62,37 @@ const createProject = (project) => {
   alert('Project created successfully');
 };
 
+const createTodo = (title, description, dueDate, priority) => {
+  const newTodo = todoObj(title, description, dueDate, priority);
+  allProjects.forEach((proj) => {
+    if (proj.projectTitle === currentProject) {
+      proj.todoList.push(newTodo);
+      alert(`${proj.todoList.length + ' Todo(s) added succesfully!'}`);
+    }
+  });
+};
+
 const validateProjInput = (e) => {
   e.preventDefault();
   if (projectInput.value === '') {
     alert('Project cannot be empty');
   } else {
     createProject(projectInput.value);
+  }
+};
+
+const validateTodoInput = (e) => {
+  e.preventDefault();
+  if (todoTitle.value === '') {
+    alert('Title cannot be empty!');
+  }
+    else if (todoDescription.value === '') {
+      alert('Please, add a brief description');
+  }
+    else if (todoDate.value === '') {
+      alert('Date cannot be empty!');
+  } else {
+    createTodo(todoTitle.value, todoDescription.value, todoDate.value, todoPriority.value);
   }
 };
 
@@ -76,4 +104,9 @@ newProjBtn.addEventListener('click', () => {
 
 addProjectBtn.addEventListener('click', (e) => {
   validateProjInput(e);
+});
+
+addTodoBtn.addEventListener('click', (e) => {
+  validateTodoInput(e);
+  console.log('Todo created!');
 });
