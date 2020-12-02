@@ -13,6 +13,8 @@ const todoDate = document.getElementById('todoDate');
 const todoPriority = document.getElementById('todoPriority');
 const addTodoBtn = document.getElementById('addTodoBtn');
 const newTodoBtn = document.getElementById('newTodoBtn');
+const cancelProjBtn = document.querySelector('#cancelProjectBtn');
+const cancelTodoBtn = document.querySelector('#cancelTodoBtn');
 
 const todoContents = todoPara.innerHTML;
 
@@ -20,4 +22,5 @@ export {
   mainContent, todos, todoPara, todoContents, mySelect, projectForm,
   newProjBtn, projectInput, addProjectBtn, todoForm, todoTitle,
   todoDescription, todoDate, todoPriority, addTodoBtn, newTodoBtn,
+  cancelProjBtn, cancelTodoBtn,
 };

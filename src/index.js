@@ -4,6 +4,7 @@ import {
   mainContent, todos, todoPara, todoContents, mySelect, projectForm,
   newProjBtn, projectInput, addProjectBtn, todoForm, todoTitle,
   todoDescription, todoDate, todoPriority, addTodoBtn, newTodoBtn,
+  cancelProjBtn, cancelTodoBtn,
 } from './selectors';
 import projForm from './projectForm';
 
@@ -125,4 +126,12 @@ newTodoBtn.addEventListener('click', () => {
   console.log('Todo Form');
   projForm.createTodoForm();
   todoForm.reset();
+});
+
+cancelProjBtn.addEventListener('click', () => { 
+  projForm.hideProjectForm();
+});
+
+cancelTodoBtn.addEventListener('click', () => { 
+  projForm.hideTodoForm();
 });
