@@ -1,1 +1,1 @@
-console.log("Testing Webpack");
+(()=>{"use strict";const t=[];(()=>{const o={projectTitle:"Default Project",todoList:[]},e={title:"Task 1",description:"Default",dueDate:"21/11/2020",priority:"High"};var i;o.todoList.push(e),t.push(o),i=o,t.forEach((t=>{if(t===i)for(let o=0;o<t.todoList.length;o+=1)alert(t.todoList[o].title),alert(t.todoList[o].description);else alert("No Todos")}))})()})();
