@@ -3,7 +3,7 @@ import todoObj from './todo';
 import {
   mainContent, todos, todoPara, todoContents, mySelect, projectForm,
   newProjBtn, projectInput, addProjectBtn, todoForm, todoTitle,
-  todoDescription, todoDate, todoPriority, addTodoBtn,
+  todoDescription, todoDate, todoPriority, addTodoBtn, newTodoBtn,
 } from './selectors';
 import projForm from './projectForm';
 
@@ -109,4 +109,9 @@ addProjectBtn.addEventListener('click', (e) => {
 addTodoBtn.addEventListener('click', (e) => {
   validateTodoInput(e);
   console.log('Todo created!');
+});
+
+newTodoBtn.addEventListener('click', () => {
+  console.log('Todo Form');
+  projForm.createTodoForm();
 });

@@ -15,39 +15,40 @@
     </header>
     <main>
       <div class="container-fluid d-flex row p-0 m-0 vh-100">
-        <div class="col-3 nav-links bg-dark">
-          <nav>
+        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 nav-links bg-dark">
+          <nav id="navbar" class="navbar">
             <label for="mySelect" class="text-white">Select Project</label>
-            <select id="mySelect" onchange="myFunction()">
+            <select id="mySelect" class="p-2 rounded mb-2 w-100" onchange="myFunction()">
             </select>
-            <button type="button" id="newProjBtn" class="btn btn-light">New Project</button>
-            <button type="button" id="newTodoBtn" class="btn btn-light">New Todo List</button>
-          </nav>
-          <div class="projects"></div>
-          <form id="projectForm" class="projectForm bg-primary p-2">
-            <label for="projectTitle" class="text-white">Project Title</label>
-            <input type="text" id="projectTitle">
-            <button type="submit" id="addProjectBtn" class="btn btn-success">Add Project</button>
-            <button type="submit" id="cancelProjectBtn" class="btn btn-danger">Cancel</button>
-          </form>
-          <form id="todoForm" class="bg-primary p-2 mt-2">
-            <label for="todoTitle" class="text-white">Todo Title</label>
-            <input type="text" id="todoTitle"></br>
-            <label for="todoDescription" class="text-white">Description</label>
-            <input type="text" id="todoDescription"></br>
-            <label for="todoDate" class="text-white">Date</label>
-            <input type="date" id="todoDate"></br>
-            <label for="todoPriority" class="text-white">Priority</label>        
-            <select id="todoPriority">
-              <option value="High">High</option>
-              <option value="Medium">Medium</option>
-              <option value="Low">Low</option>
-            </select></br>
-            <button type="submit" id="addTodoBtn" class="btn btn-success">Add Todo</button>
-            <button type="submit" id="cancelTodoBtn" class="btn btn-danger">Cancel</button>
-          </form>
+            <div class="btn-con text-white d-flex mx-auto">
+                <button type="button" id="newProjBtn" class="btn btn-light py-2 mx-2">New Project</button>
+                <button type="button" id="newTodoBtn" class="btn btn-light py-2 mx-2">New Todo</button>
+            </div>
+        </nav>
+        <form id="projectForm" class="projectForm text-center bg-primary p-2">
+            <label for="projectTitle" class="text-white">Project Title</label> </br>
+            <input type="text" id="projectTitle"></br></br>
+            <button type="button" id="addProjectBtn" class="btn btn-light">Add Project</button>
+            <button type="button" id="cancelProjectBtn" class="btn btn-danger">Cancel</button>
+        </form>
+        <form id="todoForm" class="todoForm bg-primary text-center p-2 mt-2">
+          <label for="todoTitle" class="text-white">Title</label></br>
+          <input type="text" id="todoTitle"></br></br>
+          <label for="todoDescription" class="text-white">Description</label></br>
+          <input type="text" id="todoDescription"></br></br>
+          <label for="todoDate" class="text-white">Date</label></br>
+          <input type="date" id="todoDate"></br></br>
+          <label for="todoPriority" class="text-white">Priority</label></br>      
+          <select id="todoPriority">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select></br></br>
+          <button type="button" id="addTodoBtn" class="btn btn-light">Add Todo</button>
+          <button type="button" id="cancelTodoBtn" class="btn btn-danger">Cancel</button>
+        </form>
         </div>
-        <div class="col-9" id="content"></div>
+        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9 bg-secondary" id="content"></div>
       </div>
     </main>
     <script src="main.js"></script>

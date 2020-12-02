@@ -1,5 +1,5 @@
 import {
-projectForm,
+projectForm, todoForm,
 } from './selectors';
 
 const projForm = (() => {
@@ -11,9 +11,14 @@ const projForm = (() => {
     projectForm.style.display = 'none';
   };
 
+  const createTodoForm = () => {
+    todoForm.style.display = "block";
+  };
+
   return {
     createProjectForm,
-    hideProjectForm
+    hideProjectForm,
+    createTodoForm,
   };
 })();
 
