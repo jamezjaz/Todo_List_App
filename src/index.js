@@ -46,10 +46,39 @@ const showCurrentProject = (currentProject) => {
         for (let i = 0; i < proj.todoList.length; i += 1) {
           const todoDiv = document.createElement('div');
           todoDiv.classList.add('todoDiv');
-          let todoDetails = `Title: ${proj.todoList[i].title} </br></br>`;
-          todoDetails += `Description: ${proj.todoList[i].description} </br></br>`;
-          todoDetails += `Date: ${proj.todoList[i].dueDate} </br></br>`;
-          todoDetails += `Priority: ${proj.todoList[i].priority} </br></br>`;
+          // let todoDetails = `Title: ${proj.todoList[i].title} </br></br>`;
+          // todoDetails += `Description: ${proj.todoList[i].description} </br></br>`;
+          // todoDetails += `Date: ${proj.todoList[i].dueDate} </br></br>`;
+          // todoDetails += `Priority: ${proj.todoList[i].priority} </br></br>`;
+
+          let todoDetails = `
+          <div class="card p-4 m-2" style="width: auto;">
+            <div class="card-header">
+              <h3>Title: ${proj.todoList[i].title}</h3>
+            </div>
+          </div>`;
+todoDetails += `
+      <div class="card px-4 m-2" style="width: auto;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Description: ${proj.todoList[i].description}</li>
+        </ul>
+      </div>
+      `;
+todoDetails += `
+      <div class="card px-4 m-2" style="width: auto;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Date: ${proj.todoList[i].dueDate}</li>
+        </ul>
+      </div>
+      `;
+todoDetails += `
+      <div class="card px-4 m-2" style="width: auto;">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Priority: ${proj.todoList[i].priority}</li>
+        </ul>
+      </div>
+      `;
+
           todoDiv.innerHTML = todoDetails;
           const editBtn = document.createElement('button');
           const deleteBtn = document.createElement('button');
