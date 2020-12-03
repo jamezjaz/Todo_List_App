@@ -7,6 +7,7 @@ import {
   cancelProjBtn, cancelTodoBtn, saveTodoBtn,
 } from './selectors';
 import projForm from './projectForm';
+import nav from './navbar';
 
 let allProjects = [];
 let currentProject = '';
