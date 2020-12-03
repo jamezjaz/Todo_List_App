@@ -16,6 +16,7 @@ const newTodoBtn = document.getElementById('newTodoBtn');
 const cancelProjBtn = document.querySelector('#cancelProjectBtn');
 const cancelTodoBtn = document.querySelector('#cancelTodoBtn');
 const delTodoBtn = document.getElementsByClassName('delBtn');
+const saveTodoBtn = document.querySelector('#saveTodoBtn');
 
 const todoContents = todoPara.innerHTML;
 
@@ -23,5 +24,5 @@ export {
   mainContent, todos, todoPara, todoContents, mySelect, projectForm,
   newProjBtn, projectInput, addProjectBtn, todoForm, todoTitle,
   todoDescription, todoDate, todoPriority, addTodoBtn, newTodoBtn,
-  cancelProjBtn, cancelTodoBtn, delTodoBtn,
+  cancelProjBtn, cancelTodoBtn, delTodoBtn, saveTodoBtn,
 };

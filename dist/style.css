@@ -9,7 +9,8 @@ header {
 }
 
 .projectForm,
-.todoForm {
+.todoForm,
+.saveTodoBtn {
   display: none;
 }
 

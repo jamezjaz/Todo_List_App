@@ -4,12 +4,13 @@ import {
   mainContent, todos, todoPara, todoContents, mySelect, projectForm,
   newProjBtn, projectInput, addProjectBtn, todoForm, todoTitle,
   todoDescription, todoDate, todoPriority, addTodoBtn, newTodoBtn,
-  cancelProjBtn, cancelTodoBtn,
+  cancelProjBtn, cancelTodoBtn, saveTodoBtn,
 } from './selectors';
 import projForm from './projectForm';
 
 const allProjects = [];
 let currentProject = '';
+let currentTodo = '';
 
 const selectOption = () => {
   allProjects.forEach((proj) => {
@@ -43,6 +44,8 @@ const showCurrentProject = (currentProject) => {
           deleteBtn.innerHTML = 'Delete';
           editBtn.classList.add('editBtn');
           deleteBtn.classList.add('delBtn');
+          editBtn.value = i;
+          deleteBtn.value = i;
           todoDiv.appendChild(editBtn);
           todoDiv.appendChild(deleteBtn);
           todos.appendChild(todoDiv);
@@ -125,11 +128,40 @@ const delTodoBtn = (target) => {
 
 const editDelAction = (event) => {
   if (event.classList == 'editBtn') {
-    alert("Todo edited successfully");
+    renderEditTodoForm(event);
   } else if (event.classList == 'delBtn') {
-    alert("Todo will be deleted...");
     delTodoBtn(event);
+    alert("Todo will be deleted...");
   }
+};
+
+const renderEditTodoForm = (target) => {
+  projForm.createTodoForm();
+  projForm.hideCreateTodo();
+  allProjects.forEach((proj) => {
+    if (proj.projectTitle === currentProject) {
+      const edit = proj.todoList[target.value];
+      todoTitle.value = edit.title;
+      todoDescription.value = edit.description;
+      todoDate.value = edit.dueDate;
+      todoPriority.value = edit.priority;
+      currentTodo = target.value;
+    }
+  });
+};
+
+const updateTodo = () => {
+  projForm.showCreateTodo();
+  projForm.hideTodoForm();
+  allProjects.forEach((proj) => {
+    if (proj.projectTitle === currentProject) {
+      const updatedTodo = todoObj(todoTitle.value, todoDescription.value, todoDate.value, todoPriority.value);
+      proj.todoList[currentTodo] = updatedTodo;
+      const Index = allProjects.findIndex((idx => idx.projectTitle == currentProject));
+      allProjects[Index] = proj;
+      showCurrentProject(currentProject);
+    }
+  });
 };
 
 defaults();
@@ -160,9 +192,16 @@ cancelProjBtn.addEventListener('click', () => {
 
 cancelTodoBtn.addEventListener('click', () => { 
   projForm.hideTodoForm();
+  projForm.showCreateTodo();
 });
 
 todos.addEventListener('click', (e) => {
   editDelAction(e.target);
   console.log('Working');
+});
+
+saveTodoBtn.addEventListener('click', (e) => {
+  e.preventDefault();
+  updateTodo();
+  console.log('Edited');
 });
