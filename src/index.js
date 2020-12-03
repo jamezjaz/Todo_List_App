@@ -8,9 +8,22 @@ import {
 } from './selectors';
 import projForm from './projectForm';
 
-const allProjects = [];
+let allProjects = [];
 let currentProject = '';
 let currentTodo = '';
+
+const storeAllProjects = () => {
+  const store = JSON.stringify(allProjects);
+  localStorage.setItem('allProjects', store);
+};
+
+const fetchTodos = () => {
+  const store = localStorage.getItem('allProjects');
+  allProjects = JSON.parse(store);
+  if (!allProjects) {
+    allProjects = [];
+  }
+};
 
 const selectOption = () => {
   allProjects.forEach((proj) => {
@@ -59,15 +72,17 @@ const showCurrentProject = (currentProject) => {
 };
 
 const defaults = () => {
-  const defaultProject = projectObj('Default Project');
-  const secondProject = projectObj('second Project');
-  const defaultTodo = todoObj('Task 1', 'Default', '21/11/2020', 'High');
-  const secondTodo = todoObj('Second Task', 'Description', '01/01/2021', 'Medium');
-  defaultProject.todoList.push(defaultTodo);
-  secondProject.todoList.push(secondTodo);
-  allProjects.push(defaultProject);
-  allProjects.push(secondProject);
-  currentProject = defaultProject.projectTitle;
+  // const defaultProject = projectObj('Default Project');
+  // const secondProject = projectObj('second Project');
+  // const defaultTodo = todoObj('Task 1', 'Default', '21/11/2020', 'High');
+  // const secondTodo = todoObj('Second Task', 'Description', '01/01/2021', 'Medium');
+  // defaultProject.todoList.push(defaultTodo);
+  // secondProject.todoList.push(secondTodo);
+  // allProjects.push(defaultProject);
+  // allProjects.push(secondProject);
+  // // fetchTodos();
+  // currentProject = defaultProject.projectTitle;
+  fetchTodos();
   showCurrentProject(currentProject);
   selectOption();
 };
@@ -75,6 +90,7 @@ const defaults = () => {
 const createProject = (project) => {
   const newProject = projectObj(project);
   allProjects.push(newProject);
+  storeAllProjects();
   mySelect.innerHTML = '';
   selectOption();
   projForm.hideProjectForm();
@@ -86,6 +102,7 @@ const createTodo = (title, description, dueDate, priority) => {
   allProjects.forEach((proj) => {
     if (proj.projectTitle === currentProject) {
       proj.todoList.push(newTodo);
+      storeAllProjects();
       showCurrentProject(currentProject);
       projForm.hideTodoForm();
       alert(`${proj.todoList.length + ' Todo(s) added succesfully!'}`);
@@ -121,6 +138,7 @@ const delTodoBtn = (target) => {
   allProjects.forEach((proj) => {
     if (proj.projectTitle === currentProject) {
       proj.todoList.splice(target.value, 1);
+      storeAllProjects();
       showCurrentProject(currentProject);
     }
   });
@@ -159,6 +177,7 @@ const updateTodo = () => {
       proj.todoList[currentTodo] = updatedTodo;
       const Index = allProjects.findIndex((idx => idx.projectTitle == currentProject));
       allProjects[Index] = proj;
+      storeAllProjects();
       showCurrentProject(currentProject);
     }
   });
