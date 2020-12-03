@@ -8,6 +8,7 @@ import {
 } from './selectors';
 import projForm from './projectForm';
 import nav from './navbar';
+import currentDate from './date';
 
 let allProjects = [];
 let currentProject = '';

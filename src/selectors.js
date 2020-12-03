@@ -18,6 +18,7 @@ const cancelTodoBtn = document.querySelector('#cancelTodoBtn');
 const delTodoBtn = document.getElementsByClassName('delBtn');
 const saveTodoBtn = document.querySelector('#saveTodoBtn');
 const header = document.querySelector('.header');
+const date = document.querySelector('.date');
 
 const todoContents = todoPara.innerHTML;
 
@@ -25,5 +26,5 @@ export {
   mainContent, todos, todoPara, todoContents, mySelect, projectForm,
   newProjBtn, projectInput, addProjectBtn, todoForm, todoTitle,
   todoDescription, todoDate, todoPriority, addTodoBtn, newTodoBtn,
-  cancelProjBtn, cancelTodoBtn, delTodoBtn, saveTodoBtn, header,
+  cancelProjBtn, cancelTodoBtn, delTodoBtn, saveTodoBtn, header, date,
 };
