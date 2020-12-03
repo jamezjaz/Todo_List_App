@@ -1,7 +1,9 @@
+/* eslint-disable no-unused-vars, no-use-before-define, no-alert, prefer-template, eqeqeq, max-len */
+
 import projectObj from './project';
 import todoObj from './todo';
 import {
-  mainContent, todos, todoPara, todoContents, mySelect, projectForm,
+  mainContent, todos, mySelect, projectForm,
   newProjBtn, projectInput, addProjectBtn, todoForm, todoTitle,
   todoDescription, todoDate, todoPriority, addTodoBtn, newTodoBtn,
   cancelProjBtn, cancelTodoBtn, saveTodoBtn,
@@ -48,38 +50,34 @@ const showCurrentProject = (currentProject) => {
         for (let i = 0; i < proj.todoList.length; i += 1) {
           const todoDiv = document.createElement('div');
           todoDiv.classList.add('todoDiv');
-          // let todoDetails = `Title: ${proj.todoList[i].title} </br></br>`;
-          // todoDetails += `Description: ${proj.todoList[i].description} </br></br>`;
-          // todoDetails += `Date: ${proj.todoList[i].dueDate} </br></br>`;
-          // todoDetails += `Priority: ${proj.todoList[i].priority} </br></br>`;
 
           let todoDetails = `
-          <div class="card p-4 m-2" style="width: auto;">
-            <div class="card-header">
-              <h3>Title: ${proj.todoList[i].title}</h3>
-            </div>
-          </div>`;
-todoDetails += `
-      <div class="card px-4 m-2" style="width: auto;">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Description: ${proj.todoList[i].description}</li>
-        </ul>
-      </div>
-      `;
-todoDetails += `
-      <div class="card px-4 m-2" style="width: auto;">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Date: ${proj.todoList[i].dueDate}</li>
-        </ul>
-      </div>
-      `;
-todoDetails += `
-      <div class="card px-4 m-2" style="width: auto;">
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Priority: ${proj.todoList[i].priority}</li>
-        </ul>
-      </div>
-      `;
+                    <div class="card p-4 m-2" style="width: auto;">
+                      <div class="card-header">
+                        <h3>Title: ${proj.todoList[i].title}</h3>
+                      </div>
+                    </div>`;
+          todoDetails += `
+                <div class="card px-4 m-2" style="width: auto;">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Description: ${proj.todoList[i].description}</li>
+                  </ul>
+                </div>
+                `;
+          todoDetails += `
+                <div class="card px-4 m-2" style="width: auto;">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Date: ${proj.todoList[i].dueDate}</li>
+                  </ul>
+                </div>
+                `;
+          todoDetails += `
+                <div class="card px-4 m-2" style="width: auto;">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Priority: ${proj.todoList[i].priority}</li>
+                  </ul>
+                </div>
+                `;
 
           todoDiv.innerHTML = todoDetails;
           const editBtn = document.createElement('button');
@@ -118,7 +116,7 @@ todoDetails += `
       } else {
         todos.innerHTML = '<h3 class="text-danger font-weight-bold">No Todos! Create one...</h3>';
       }
-    }  
+    }
   });
 };
 
@@ -154,7 +152,7 @@ const createTodo = (title, description, dueDate, priority) => {
 const validateProjInput = (e) => {
   e.preventDefault();
   if (projectInput.value === '') {
-    alert('Project cannot be empty');
+    alert('Project field cannot be empty');
   } else {
     createProject(projectInput.value);
   }
@@ -163,13 +161,11 @@ const validateProjInput = (e) => {
 const validateTodoInput = (e) => {
   e.preventDefault();
   if (todoTitle.value === '') {
-    alert('Title cannot be empty!');
-  }
-    else if (todoDescription.value === '') {
-      alert('Please, add a brief description');
-  }
-    else if (todoDate.value === '') {
-      alert('Date cannot be empty!');
+    alert('Title field cannot be empty!');
+  } else if (todoDescription.value === '') {
+    alert('Please, add a brief description');
+  } else if (todoDate.value === '') {
+    alert('Date field cannot be empty!');
   } else {
     createTodo(todoTitle.value, todoDescription.value, todoDate.value, todoPriority.value);
   }
@@ -190,7 +186,7 @@ const editDelAction = (event) => {
     renderEditTodoForm(event);
   } else if (event.classList == 'delBtn') {
     delTodoBtn(event);
-    alert("Todo will be deleted...");
+    alert('This todo will be deleted...');
   }
 };
 
@@ -237,31 +233,27 @@ addProjectBtn.addEventListener('click', (e) => {
 
 addTodoBtn.addEventListener('click', (e) => {
   validateTodoInput(e);
-  console.log('Todo created!');
 });
 
 newTodoBtn.addEventListener('click', () => {
-  console.log('Todo Form');
   projForm.createTodoForm();
   todoForm.reset();
 });
 
-cancelProjBtn.addEventListener('click', () => { 
+cancelProjBtn.addEventListener('click', () => {
   projForm.hideProjectForm();
 });
 
-cancelTodoBtn.addEventListener('click', () => { 
+cancelTodoBtn.addEventListener('click', () => {
   projForm.hideTodoForm();
   projForm.showCreateTodo();
 });
 
 todos.addEventListener('click', (e) => {
   editDelAction(e.target);
-  console.log('Working');
 });
 
 saveTodoBtn.addEventListener('click', (e) => {
   e.preventDefault();
   updateTodo();
-  console.log('Edited');
 });

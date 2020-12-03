@@ -1,5 +1,5 @@
 const todoObj = (title, description, dueDate, priority) => ({
-    title, description, dueDate, priority,
-  });
-  
-  export default todoObj;
+  title, description, dueDate, priority,
+});
+
+export default todoObj;

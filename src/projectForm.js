@@ -1,5 +1,5 @@
 import {
-projectForm, todoForm, addTodoBtn, saveTodoBtn,
+  projectForm, todoForm, addTodoBtn, saveTodoBtn,
 } from './selectors';
 
 const projForm = (() => {
@@ -12,11 +12,11 @@ const projForm = (() => {
   };
 
   const createTodoForm = () => {
-    todoForm.style.display = "block";
+    todoForm.style.display = 'block';
   };
 
   const hideTodoForm = () => {
-    todoForm.style.display = "none";
+    todoForm.style.display = 'none';
   };
 
   const showCreateTodo = () => {
