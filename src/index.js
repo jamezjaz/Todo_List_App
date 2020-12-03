@@ -53,14 +53,34 @@ const showCurrentProject = (currentProject) => {
           todoDiv.innerHTML = todoDetails;
           const editBtn = document.createElement('button');
           const deleteBtn = document.createElement('button');
+          const complete = document.createElement('input');
+          const label = document.createElement('Label');
+
           editBtn.innerHTML = 'Edit';
           deleteBtn.innerHTML = 'Delete';
           editBtn.classList.add('editBtn');
           deleteBtn.classList.add('delBtn');
           editBtn.value = i;
           deleteBtn.value = i;
+          complete.setAttribute('type', 'checkbox');
+          complete.setAttribute('id', 'complete');
+          complete.setAttribute('value', 'Complete');
+          complete.classList = 'btn btn-success px-4 mx-2';
+          label.innerHTML = 'Complete';
+          label.classList = 'text-white';
+
+          complete.addEventListener('click', () => {
+            if (complete.checked === true) {
+              todoDiv.style.backgroundColor = 'green';
+            } else {
+              todoDiv.style.backgroundColor = '';
+            }
+          });
+
           todoDiv.appendChild(editBtn);
           todoDiv.appendChild(deleteBtn);
+          todoDiv.appendChild(complete);
+          todoDiv.appendChild(label);
           todos.appendChild(todoDiv);
           mainContent.appendChild(todos);
         }
@@ -72,16 +92,6 @@ const showCurrentProject = (currentProject) => {
 };
 
 const defaults = () => {
-  // const defaultProject = projectObj('Default Project');
-  // const secondProject = projectObj('second Project');
-  // const defaultTodo = todoObj('Task 1', 'Default', '21/11/2020', 'High');
-  // const secondTodo = todoObj('Second Task', 'Description', '01/01/2021', 'Medium');
-  // defaultProject.todoList.push(defaultTodo);
-  // secondProject.todoList.push(secondTodo);
-  // allProjects.push(defaultProject);
-  // allProjects.push(secondProject);
-  // // fetchTodos();
-  // currentProject = defaultProject.projectTitle;
   fetchTodos();
   showCurrentProject(currentProject);
   selectOption();
