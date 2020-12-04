@@ -43,6 +43,9 @@ mySelect.onchange = () => {
 };
 
 const showCurrentProject = (currentProject) => {
+  if (currentProject == '') {
+    currentProject = mySelect.value;
+  }
   allProjects.forEach((proj) => {
     if (proj.projectTitle === currentProject) {
       todos.innerHTML = '';
@@ -122,8 +125,8 @@ const showCurrentProject = (currentProject) => {
 
 const defaults = () => {
   fetchTodos();
-  showCurrentProject(currentProject);
   selectOption();
+  showCurrentProject(currentProject);
 };
 
 const createProject = (project) => {
@@ -133,10 +136,14 @@ const createProject = (project) => {
   mySelect.innerHTML = '';
   selectOption();
   projForm.hideProjectForm();
+  currentProject = mySelect.value;
   alert('Project created successfully');
 };
 
 const createTodo = (title, description, dueDate, priority) => {
+  if (currentProject == '') {
+    createProject('Default Project');
+  }
   const newTodo = todoObj(title, description, dueDate, priority);
   allProjects.forEach((proj) => {
     if (proj.projectTitle === currentProject) {
