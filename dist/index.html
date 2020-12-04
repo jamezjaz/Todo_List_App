@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://png.pngtree.com/png-vector/20190727/ourmid/pngtree-business-work-to-do-list-png-image_1635099.jpg" type="image/x-icon">
+</head>
+<body class="container-fluid p-0 m-0">
+    <header class="header"></header>
+    <div class="date d-flex justify-content-center"><span>Today's Date: </span></div>
+    <main>
+      <div class="container-fluid d-flex row p-0 m-0 vh-100">
+        <div class="col-xs-12 col-sm-5 col-md-4 col-lg-3 nav-links bg-dark">
+          <nav id="navbar" class="navbar">
+            <label for="mySelect" class="text-white">Select Project</label>
+            <select id="mySelect" class="p-2 rounded mb-2 w-100" onchange="myFunction()">
+              <option id="defaultProject" value="default">Default Project</option>
+            </select>
+            <div class="btn-con text-white d-flex mx-auto">
+                <button type="button" id="newProjBtn" class="btn btn-light py-2 mx-2">New Project</button>
+                <button type="button" id="newTodoBtn" class="btn btn-light py-2 mx-2">New Todo</button>
+            </div>
+        </nav>
+        <form id="projectForm" class="projectForm text-center bg-primary p-2">
+            <label for="projectTitle" class="text-white">Project Title</label> </br>
+            <input type="text" id="projectTitle"></br></br>
+            <button type="button" id="addProjectBtn" class="btn btn-light">Add Project</button>
+            <button type="button" id="cancelProjectBtn" class="btn btn-danger">Cancel</button>
+        </form>
+        <form id="todoForm" class="todoForm bg-primary text-center p-2 mt-2">
+          <label for="todoTitle" class="text-white">Title</label></br>
+          <input type="text" id="todoTitle"></br></br>
+          <label for="todoDescription" class="text-white">Description</label></br>
+          <input type="text" id="todoDescription"></br></br>
+          <label for="todoDate" class="text-white">Date</label></br>
+          <input type="date" id="todoDate"></br></br>
+          <label for="todoPriority" class="text-white">Priority</label></br>      
+          <select id="todoPriority">
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select></br></br>
+          <div class="d-flex">
+            <button type="button" id="saveTodoBtn" class="saveTodoBtn mx-auto btn btn-warning">Save</button>
+            <button type="button" id="addTodoBtn" class="btn btn-light mx-auto">Add Todo</button>
+            <button type="button" id="cancelTodoBtn" class="btn btn-danger mx-auto">Cancel</button>
+          </div>
+        </form>
+        </div>
+        <div class="col-xs-12 col-sm-7 col-md-8 col-lg-9 bg-secondary" id="content"></div>
+      </div>
+    </main>
+    <script src="main.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+  </body>
+</html>
