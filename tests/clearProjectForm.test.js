@@ -1,12 +1,14 @@
+/* eslint-disable no-unused-vars */
+
 const projectObj = (projectTitle) => ({
-    projectTitle,
-  });
+  projectTitle,
+});
 
 const projectForm = {
   projectTitle: {
-    value: ' '
+    value: ' ',
   },
-}
+};
 
 const clearProjectForm = () => {
   projectForm.projectTitle.value = '';

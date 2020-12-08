@@ -10,7 +10,7 @@ const todoForm = {
     value: 'Groceries and toiletries',
   },
   dueDate: {
-    value: 22-12-2020,
+    value: 22 - 12 - 2020,
   },
   priority: {
     value: 'Medium',

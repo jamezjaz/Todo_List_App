@@ -1,6 +1,5 @@
 const createTodo = require('./createTodo');
 
-
 describe('Todo Title', () => {
   test('should pass if the title is correct', () => {
     const newTodo = createTodo();
@@ -38,7 +37,7 @@ describe('Todo Description', () => {
 describe('Todo Date', () => {
   test('should pass if the date is correct', () => {
     const newTodo = createTodo();
-    expect(newTodo.dueDate).toBe(22-12-2020);
+    expect(newTodo.dueDate).toBe(22 - 12 - 2020);
   });
 
   test('should fail if the date is undefined', () => {
@@ -73,8 +72,8 @@ describe('New Todo', () => {
   test('Creating New Todo', () => {
     const newTodo = createTodo();
     const expectation = {
-      title: 'Shopping', description: 'Groceries and toiletries', dueDate: 22-12-2020, priority: 'Medium',
-  };
-  expect(newTodo).toStrictEqual(expectation);
+      title: 'Shopping', description: 'Groceries and toiletries', dueDate: 22 - 12 - 2020, priority: 'Medium',
+    };
+    expect(newTodo).toStrictEqual(expectation);
   });
 });
