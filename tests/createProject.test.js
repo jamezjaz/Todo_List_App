@@ -1,15 +1,21 @@
 const createProject = require('./createProject');
 
 describe('Project Title', () => {
-  test('project title to be projectTitle.value', () => {
+  test('project title', () => {
     expect(createProject.projectTitle).toBe();
   });
 
-  test('project title to be projectTitle.value', () => {
+  test('returns undefined when project title is not defined', () => {
     expect(createProject.projectTitle).toBe(undefined);
   });
 
-  test('Incorrect project title', () => {
-    expect(createProject.projectTitle).not.toBe('Workout');
+  test('returns projectTitle.value when project title is defined', () => {
+    const newProj = createProject();
+    expect(newProj.projectTitle).toStrictEqual('Workout');
+  });
+
+  test('incorrect project title', () => {
+    const newProj = createProject();
+    expect(newProj.projectTitle).not.toBe('Coding');
   });
 });
