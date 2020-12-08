@@ -26,7 +26,6 @@ const clearTodoForm = () => {
   
 it('returns undefined if the form is cleared', () => {
   const clear = clearTodoForm();
-  const expectation = {title: '', description: '', dueDate: '', priority: ''};
   expect(clear).toBeUndefined();
 });
   

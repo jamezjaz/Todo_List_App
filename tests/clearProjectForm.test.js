@@ -14,6 +14,5 @@ const clearProjectForm = () => {
 
 test('should return undefined if the form is cleared', () => {
   const action = clearProjectForm();
-  const expectation = {projectTitle: ' '};
   expect(action).toBeUndefined();
 });
