@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1607448795673" clover="3.2.0">
-  <project timestamp="1607448795673" name="All files">
+<coverage generated="1607451644489" clover="3.2.0">
+  <project timestamp="1607451644490" name="All files">
     <metrics statements="15" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4" elements="19" coveredelements="19" complexity="0" loc="15" ncloc="15" packages="1" files="2" classes="2"/>
     <file name="createProject.js" path="/home/jamezjaz/Microverse_Projects/Todo_List_App/tests/createProject.js">
       <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
